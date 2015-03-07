@@ -68,7 +68,7 @@ addThree x y z = x + y + z
 addThree' :: Int -> Int -> Int -> Int
 addThree' = \x -> \y -> \z -> x + y + z
 
-flip''' :: (a -> b -> c) -> b -> a -> c
+flip''' :: (z-> b -> c) -> b -> z -> c
 flip''' f = \x y -> f y x
 
 sum' :: (Num a) => [a] -> a
@@ -111,8 +111,8 @@ and' xs = foldr (&&) True xs
 True &&& x = x
 False &&& _ = False
 
-sqrtSums :: Int
-sqrtSums = length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..]))) + 1
+-- sqrtSums :: [a]
+sqrtSums = head $ (dropWhile (<1000) (scanl1 (+) (map sqrt [1..])))
 
 -- ($) :: (a -> b) -> a -> b
 -- f $ x = f x
