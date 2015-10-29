@@ -5,7 +5,7 @@ newtype DiffList a = DiffList { getDiffList :: [a] -> [a] }
 toDiffList :: [a] -> DiffList a
 toDiffList xs = DiffList (xs ++)
 
-fromDiffList :: [DiffList] a -> [a]
+fromDiffList :: DiffList a -> [a]
 fromDiffList (DiffList f) = f []
 
 instance Monoid (DiffList a) where
@@ -15,10 +15,10 @@ instance Monoid (DiffList a) where
 gcd' :: Int -> Int -> Writer (DiffList String) Int
 gcd' a b
   | b == 0 = do
-    tell (DiffList ["Finished with " ++ show a])
+    tell (toDiffList ["Finished with " ++ show a])
     return a
   | otherwise = do
-    tell (DiffList [show a ++ " mod " ++ show b ++ " = " ++ show (a `mod` b)])
+    tell (toDiffList [show a ++ " mod " ++ show b ++ " = " ++ show (a `mod` b)])
     gcd' b (a `mod` b)
 
 Stack
