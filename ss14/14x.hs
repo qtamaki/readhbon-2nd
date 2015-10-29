@@ -21,3 +21,5 @@ gcd' a b
     tell (DiffList [show a ++ " mod " ++ show b ++ " = " ++ show (a `mod` b)])
     gcd' b (a `mod` b)
 
+Stack
+
