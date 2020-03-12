@@ -27,8 +27,8 @@ digitSum = sum . map digitToInt . show
 firstTo40 :: Maybe Int
 firstTo40 = find (\x -> digitSum x == 40) [1..]
 
-firstTo :: Int -> Maybe Int
-firstTo n = find (\x -> digitSum x == n) [1..]
+firstTo :: Int -> [Int] -> Maybe Int
+firstTo n xs = find (\x -> digitSum x == n) xs -- [1..]
 
 phoneBook = id $
   [("betty", "555-2938") ,("bonnie", "452-2928") ]

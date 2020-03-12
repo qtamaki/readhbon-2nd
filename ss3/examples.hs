@@ -1,6 +1,7 @@
 lucky :: Int -> String
 lucky 7 = "LUCKY NUMBER SEVEN!"
-lucky x = "Sorry, you're out of luck, pal!"
+lucky 9 = "LUCKY NUMBER NINE!"
+lucky x = "Sorry, you're out of luck, pal! " ++ show x
 
 sayMe :: Int -> String
 sayMe 1 = "One!"
@@ -94,10 +95,11 @@ bmiTell'3 weight height
     | bmi <= normal = "You're supposedly normal. Pffft, I bet you're ugly!"
     | bmi <= fat = "You're fat! Lose some weight, fatty!"
     | otherwise   = "You're a whale, congratulations!"
-    where bmi = weight / height ^ 2
-          skinny = 18.5
-          normal = 25.0
-          fat = 30.0
+    where
+     bmi = weight / height ^ 2
+     skinny = 18.5
+     normal = 25.0
+     fat = 30.0
 
 -- {- -- compile error
 greet :: String -> String
